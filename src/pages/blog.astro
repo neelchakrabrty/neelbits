@@ -1,5 +1,8 @@
 ---
-
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+const pageTitle = "Blog";
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -8,13 +11,15 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>About</title>
+        <title>{pageTitle}</title>
     </head>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
     <body>
-        <h1>This is Neelbits' blog page</h1>
+        <header>
+            <nav>
+                <Navigation />
+            </nav>
+        </header>
+        <h1>{pageTitle}</h1>
         <h1>This site is undergoing a surgery</h1>
         <p>
             I am currently learning astro,to rebuild my blog with extreme
@@ -31,7 +36,6 @@
             <li><a href="/posts/intro3/">Post 3</a></li>
         </ul>
         <h2>Hello Neel</h2>
+        <Footer />
     </body>
-
-
 </html>

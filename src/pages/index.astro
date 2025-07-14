@@ -1,5 +1,8 @@
 ---
-
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+const pageTitle = "Home";
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -10,14 +13,15 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Neelbits</title>
 	</head>
-	<a href="/">Home</a>
-	<a href="/about/">About</a>
-	<a href="/blog/">Blog</a>
 	<body>
+		<header>
+			<nav>
+				<Navigation />
+			</nav>
+		</header>
+		<h1>{pageTitle}</h1>
 		<h1>Welcome to Neelbits</h1>
-		<h1>Hello World</h1>
-		<h2>Hello Neel</h2>
+		<h2>Hello World!</h2>
+		<Footer />
 	</body>
-
-
 </html>
