@@ -2,33 +2,16 @@
 const pageTitle = "Neelbits";
 ---
 
-<script is:client="load">
-    let lastScroll = window.scrollY;
-    const nav = document.querySelector("nav");
+<!-- Load scroll behavior script -->
+<script src="../scripts/navigation.js"></script>
 
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.scrollY;
-        if (currentScroll > lastScroll && currentScroll > 50) {
-            nav?.classList.add("nav-hidden");
-        } else {
-            nav?.classList.remove("nav-hidden");
-        }
-        lastScroll = currentScroll;
-    });
-</script>
-
-<style>
-    nav {
-        transition: transform 0.3s ease;
-    }
-
-    .nav-hidden {
-        transform: translateY(-100%);
-    }
-</style>
-
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow">
-    <div class="max-w-screen-xl mx-auto flex items-center justify-between">
+<nav
+    id="navbar"
+    class="fixed top-0 left-0 right-0 z-50 bg-white shadow visible"
+>
+    <div
+        class="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-3"
+    >
         <!-- Left: Site Title -->
         <div class="text-2xl font-bold text-sky-700 tracking-tight">
             <a
