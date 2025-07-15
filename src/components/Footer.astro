@@ -3,10 +3,23 @@ const platform = "github";
 const username = "neelchakrabrty";
 ---
 
-<footer>
-    <p>
-        Learn more about my projects on <a
-            href={`https://www.${platform}.com/${username}`}>{platform}</a
-        >!
-    </p>
+<footer class="w-full bg-sky-800 text-white py-8 mt-12 shadow-inner">
+    <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4"
+    >
+        <p class="text-lg font-medium mb-4 md:mb-0">
+            Learn more about my projects on
+            <a
+                href={`https://www.${platform}.com/${username}`}
+                class="underline underline-offset-4 text-sky-200 hover:text-white transition-colors duration-200 font-semibold"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                {platform.charAt(0).toUpperCase() + platform.slice(1)}
+            </a>!
+        </p>
+        <span class="text-sm text-sky-200"
+            >&copy; {new Date().getFullYear()} Neel Chakraborty. All rights reserved.</span
+        >
+    </div>
 </footer>
