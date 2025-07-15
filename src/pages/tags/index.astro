@@ -1,13 +1,24 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/global.css";
+
 const allPosts = Object.values(
     import.meta.glob("../posts/*.md", { eager: true }),
 );
 const tags = [
     ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
-];
-const pageTitle = "Tag Index";
+].sort();
+const pageTitle = "Blog Archive";
+
+// Helper to format date as "MONTH-YEAR" (e.g., "Jul-2025")
+function formatDate(dateString: string) {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {
+        year: "numeric",
+        month: "short",
+    };
+    return date.toLocaleDateString("en-US", options);
+}
 ---
 
 <style>
@@ -20,24 +31,78 @@ const pageTitle = "Tag Index";
         flex-wrap: wrap;
     }
 
-.tag {
-  margin: 0.25em;
-  border: dotted 1px #a1a1a1;
-  border-radius: 0.5em;
-  padding: 0.5em 1em;
-  font-size: 1.15em;
-  background-color: #f8fcfd;
-  transition: background-color 0.2s, color 0.2s;
-}
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-size: 1.15em;
+        background-color: #f8fcfd;
+    }
+    .tag-section {
+        font-weight: 400;
+        font-size: 1.7rem;
+        max-width: 3xl;
+        margin: 3rem auto;
+        padding: 1.25rem 1rem;
+        border-bottom: 1px solid #ddd;
+    }
 
-.tag:hover {
-  background-color: #d0e7fa;
-  color: #003366;
-}
-    
+    .tag-section:last-child {
+        border-bottom: none;
+    }
+
+    ..tag-section h2.tag {
+        color: #555555;
+        background: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1.6rem;
+        display: inline-block;
+    }
+
+    .tag-section h2.tag a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .tag-section h2.tag:hover {
+        text-decoration: underline;
+        color: #444444;
+    }
+
+    .posts-list {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+        list-style-type: disc;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .posts-list li {
+        margin-bottom: 0.75rem;
+    }
+
+    .post-link {
+        color: #00539f;
+        text-decoration: none;
+    }
+
+    .post-link:hover {
+        text-decoration: underline;
+    }
+
+    .post-date {
+        font-weight: 600;
+        margin-right: 0.5rem;
+        color: #555;
+        font-size: 0.9rem;
+        font-variant: small-caps;
+    }
 </style>
+
 <BaseLayout pageTitle={pageTitle}>
-    <section class="max-w-3xl mx-auto py-10 px-4">
+    <section class="py-10 px-4 max-w-3xl mx-auto">
         <h1
             class="bg-gradient-to-r
             from-blue-600
@@ -49,22 +114,57 @@ const pageTitle = "Tag Index";
             text-4xl
             md:text-5xl
             font-extrabold
-            mb-6
+            mb-10
             drop-shadow
             leading-tight
-            overflow-visible"
+            overflow-visible
+           text-center"
         >
-            Tags
+            Archive
         </h1>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            Here you can find all my blog posts organized by tags. Click on a
+            tag to see all posts related to that tag.
+        </p>
         <div class="tags">
             {
                 tags.map((tag) => (
                     <p class="tag">
-                        {/* Use a link to the tag page */}
                         <a href={`/tags/${tag}`}>{tag}</a>
                     </p>
                 ))
             }
         </div>
+        {
+            tags.map((tag) => {
+                const postsWithTag = allPosts
+                    .filter((post: any) => post.frontmatter.tags.includes(tag))
+                    .sort(
+                        (a, b) =>
+                            new Date(b.frontmatter.pubDate).getTime() -
+                            new Date(a.frontmatter.pubDate).getTime(),
+                    );
+
+                return (
+                    <section class="tag-section" id={`tag-${tag}`}>
+                        <h2 class="tag-section">
+                            <a href={`/tags/${tag}`}>{tag}</a>
+                        </h2>
+                        <ul class="posts-list">
+                            {postsWithTag.map((post: any) => (
+                                <li>
+                                    <span class="post-date">
+                                        {formatDate(post.frontmatter.pubDate)}
+                                    </span>
+                                    <a href={post.url} class="post-link">
+                                        {post.frontmatter.title}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                );
+            })
+        }
     </section>
 </BaseLayout>

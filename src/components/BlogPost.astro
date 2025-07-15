@@ -1,26 +1,42 @@
 ---
-const { title, url,author,publishedDate } = Astro.props;
-const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
+const { title, url, author, publishedDate, tags = [] } = Astro.props;
+
+const formattedDate = new Date(publishedDate).toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
 });
 ---
 
-<li>
-    <a href={url}>{title}</a>
-    <div>
-        <span style="margin-right: 0.5em; color: #6c757d;">{author}</span> | 
-        <span style="margin-right: 0.5em; color: #6c757d;">{formattedDate}</span>
-        {Astro.props.tags && Astro.props.tags.length > 0 && (
-            <span>
-                | {Astro.props.tags.map((tag, i) => (
-                    <span style="color: #0070f3;" key={tag}>
-                        {tag}{i < Astro.props.tags.length - 1 ? ', ' : ''}
-                    </span>
-                ))}
-            </span>
-        )}
+<li style="margin-bottom: 2em;">
+    <a href={url} style="font-size: 1.25em; font-weight: bold; color: #00539f;">
+        {title}
+    </a>
+    <div style="margin: 0.5em 0; font-size: 0.9em; color: #6c757d;">
+        <span style="margin-right: 0.5em;">{author}</span> |
+        <span style="margin-right: 0.5em;">{formattedDate}</span>
+
+        {
+            tags.length > 0 && (
+                <span style="display: inline-flex; flex-wrap: wrap; gap: 0.4em; margin-left: 0.5em;">
+                    |
+                    {tags.map((tag: string) => (
+                        <span
+                            style="
+              background-color: #e3f2fd;
+              color: #0070f3;
+              font-weight: 500;
+              padding: 0.25em 0.6em;
+              border-radius: 0.5em;
+              font-size: 0.85em;
+              display: inline-block;
+            "
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                </span>
+            )
+        }
     </div>
-    <p>{Astro.props.excerpt}</p>
 </li>

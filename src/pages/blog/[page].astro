@@ -1,0 +1,24 @@
+---
+// Paginate same list of `{ astronaut }` objects as the previous example
+export function getStaticPaths({ paginate }) {
+    const astronautPages = [
+        { astronaut: "Neil Armstrong" },
+        { astronaut: "Buzz Aldrin" },
+        { astronaut: "Sally Ride" },
+        { astronaut: "John Glenn" },
+    ];
+
+    // Generate pages from our array of astronauts, with 2 to a page
+    return paginate(astronautPages, { pageSize: 2 });
+}
+const { page } = Astro.props;
+---
+
+<h1>Page {page.currentPage}</h1>
+<ul>
+    {page.data.map(({ astronaut }) => <li>{astronaut}</li>)}
+</ul>
+{page.url.first ? <a href={page.url.first}>First</a> : null}
+{page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+{page.url.next ? <a href={page.url.next}>Next</a> : null}
+{page.url.last ? <a href={page.url.last}>Last</a> : null}

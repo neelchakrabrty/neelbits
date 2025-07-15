@@ -3,6 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 author: 'Neel Chakraborty'
 title : 'What is an answer?'
 pubDate: 2024-10-04
+tags : ["Writings"]
 ---
 
 In Mathematics,where we mostly prove statements of the form 

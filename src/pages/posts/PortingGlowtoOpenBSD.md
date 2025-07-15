@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 author: 'Neel Chakraborty'
 title : 'Porting Glow to OpenBSD'
 pubDate: 2024-09-13
-Tags : ["OpenBSD","Porting"]
+tags : ["OpenBSD","Porting"]
 ---
 
 # What is glow?

@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownPostLayout.astro
 author: 'Neel Chakraborty'
 title : 'Porting Zoxide to OpenBSD'
 pubDate: 2024-09-10
-Tags : ["OpenBSD","Porting"]
+tags : ["OpenBSD","Porting"]
 ---
 
 I love [`zoxide`](https://github.com/ajeetdsouza/zoxide), but unfortunately it wasn't present present in OpenBSD,so, I spent the weekend porting `zoxide` to OpenBSD. \
