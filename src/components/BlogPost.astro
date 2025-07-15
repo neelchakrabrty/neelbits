@@ -1,5 +1,26 @@
 ---
-const { title, url } = Astro.props;
+const { title, url,author,publishedDate } = Astro.props;
+const formattedDate = new Date(publishedDate).toLocaleDateString('en-US', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+});
 ---
 
-<li><a href={url}>{title}</a></li>
+<li>
+    <a href={url}>{title}</a>
+    <div>
+        <span style="margin-right: 0.5em; color: #6c757d;">{author}</span> | 
+        <span style="margin-right: 0.5em; color: #6c757d;">{formattedDate}</span>
+        {Astro.props.tags && Astro.props.tags.length > 0 && (
+            <span>
+                | {Astro.props.tags.map((tag, i) => (
+                    <span style="color: #0070f3;" key={tag}>
+                        {tag}{i < Astro.props.tags.length - 1 ? ', ' : ''}
+                    </span>
+                ))}
+            </span>
+        )}
+    </div>
+    <p>{Astro.props.excerpt}</p>
+</li>

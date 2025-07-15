@@ -9,6 +9,7 @@ const pageTitle = "Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+    <main class="container mx-auto px-4 py-12 items-center">
     <section class="max-w-3xl mx-auto py-10 px-4">
         <h1
             class="bg-gradient-to-r
@@ -37,12 +38,18 @@ const pageTitle = "Blog";
             Hope you'll follow along with the journey! Things are about to get
             very spicy.
         </p>
-        <ul class="space-y-6">
+        <h2 class="text-2xl font-bold mb-4">Recent Posts</h2>
+        <p class="text-gray-600 mb-6">
+            Here are some of my recent posts. Click on the title to read the full
+            post.
+        </p>
+        <ul class="space-y-6 text-blue-800 dark:text-blue-200   ">
             {
                 allPosts.map((post: any) => (
-                    <BlogPost url={post.url} title={post.frontmatter.title} />
+                    <BlogPost url={post.url} title={post.frontmatter.title} author={post.frontmatter.author} publishedDate={post.frontmatter.pubDate} />
                 ))
             }
         </ul>
     </section>
+    </main>
 </BaseLayout>
