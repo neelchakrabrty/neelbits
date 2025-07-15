@@ -1,22 +1,66 @@
-<nav class="flex gap-6">
-    <a
-        href="/"
-        class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
-        >Home</a
-    >
-    <a
-        href="/about"
-        class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
-        >About</a
-    >
-    <a
-        href="/blog/"
-        class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
-        >Blog</a
-    >
-    <a
-        href="/tags"
-        class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
-        >Archive</a
-    >
+---
+const pageTitle = "Neelbits";
+---
+
+<script is:client="load">
+    let lastScroll = window.scrollY;
+    const nav = document.querySelector("nav");
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        if (currentScroll > lastScroll && currentScroll > 50) {
+            nav?.classList.add("nav-hidden");
+        } else {
+            nav?.classList.remove("nav-hidden");
+        }
+        lastScroll = currentScroll;
+    });
+</script>
+
+<style>
+    nav {
+        transition: transform 0.3s ease;
+    }
+
+    .nav-hidden {
+        transform: translateY(-100%);
+    }
+</style>
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow">
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between">
+        <!-- Left: Site Title -->
+        <div class="text-2xl font-bold text-sky-700 tracking-tight">
+            <a
+                href="/"
+                class="hover:text-sky-900 transition-colors duration-200"
+            >
+                {pageTitle}
+            </a>
+        </div>
+
+        <!-- Right: Navigation Links -->
+        <div class="flex gap-4">
+            <a
+                href="/"
+                class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
+                >Home</a
+            >
+            <a
+                href="/about"
+                class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
+                >About</a
+            >
+            <a
+                href="/blog/"
+                class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
+                >Blog</a
+            >
+            <a
+                href="/tags"
+                class="text-sky-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-sky-500 hover:to-indigo-500"
+                >Archive</a
+            >
+        </div>
+    </div>
 </nav>
