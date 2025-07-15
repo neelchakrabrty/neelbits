@@ -1,0 +1,61 @@
+---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+const pageTitle = "Neelbits";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+            integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP"
+            crossorigin="anonymous"
+        />
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+            integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6"
+            crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"
+            integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+            crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+    </head>
+    <body
+        class="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 text-gray-800 font-sans"
+    >
+        <header class="shadow-md bg-white/80 backdrop-blur sticky top-0 z-10">
+            <nav
+                class="container mx-auto flex items-center justify-between py-4 px-6"
+            >
+                <div class="text-2xl font-bold text-sky-700 tracking-tight">
+                    <a
+                        href="/"
+                        class="hover:text-sky-900 transition-colors duration-200"
+                    >
+                        {pageTitle}
+                    </a>
+                </div>
+                <Navigation />
+            </nav>
+        </header>
+        <slot />
+        <footer>
+            <Footer />
+        </footer>
+    </body>
+</html>

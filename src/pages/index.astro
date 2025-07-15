@@ -1,6 +1,5 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Neelbits";
 import "../styles/global.css";
 ---
@@ -13,19 +12,8 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
-	<body
-		class="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 text-gray-800 font-sans"
-	>
-		<header class="shadow-md bg-white/80 backdrop-blur sticky top-0 z-10">
-			<nav
-				class="container mx-auto flex items-center justify-between py-4 px-6"
-			>
-				<div class="text-2xl font-bold text-sky-700 tracking-tight">
-					Neelbits
-				</div>
-				<Navigation />
-			</nav>
-		</header>
+
+	<BaseLayout>
 		<main
 			class="container mx-auto px-4 py-12 flex flex-col items-center justify-center"
 		>
@@ -66,11 +54,17 @@ import "../styles/global.css";
 				considered antique in this day and age. I like to optimize
 				programs to run under constrained hardware availability. I like
 				to live like it’s 2003 in the technology landscape. I also write
-				poems and articles on various topics and issues.
+				poems and articles on various topics and issues. Here is an
+				inequality that sparked my interest in Olympiad mathematics:-
+			</p>
+			<p class="prose md-prose-lg lg:prose-xl mx-auto px-4 py-6">
+				{"\\( \\text{For all } a, b, c > 0 \\text{, we have:} \\)"}
+				{
+					"$$ \\frac{a}{b + c} + \\frac{b}{c + a} + \\frac{c}{a + b} \\geq \\frac{3}{2} $$"
+				}
 			</p>
 		</main>
-		<footer>
-			<Footer />
-		</footer>
-	</body>
+	</BaseLayout>
+
+
 </html>

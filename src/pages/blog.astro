@@ -1,46 +1,29 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
-const pageTitle = "Blog";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
 import "../styles/global.css";
+const allPosts = Object.values(
+    import.meta.glob("./posts/*.md", { eager: true }),
+);
+const pageTitle = "Blog";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <header class="shadow-md bg-white/80 backdrop-blur sticky top-0 z-10">
-            <nav
-                class="container mx-auto flex items-center justify-between py-4 px-6"
-            >
-                <div class="text-2xl font-bold text-sky-700 tracking-tight">
-                    Neelbits
-                </div>
-                <Navigation />
-            </nav>
-        </header>
-        <h1>{pageTitle}</h1>
-        <h1>This site is undergoing a surgery</h1>
-        <p>
-            I am currently learning astro,to rebuild my blog with extreme
-            customisations with the help of Astro.This page is supposed to be my
-            blog. Let's see how far we can go!
-        </p>
-        <p>
-            Hope you'll follow along with the journey!Things are about to get
-            very spicy
-        </p>
-        <ul>
-            <li><a href="/posts/intro/">Post 1</a></li>
-            <li><a href="/posts/intro2/">Post 2</a></li>
-            <li><a href="/posts/intro3/">Post 3</a></li>
-        </ul>
-        <h2>Hello Neel</h2>
-        <Footer />
-    </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+    <h1>This site is undergoing a surgery</h1>
+    <p>
+        I am currently learning astro,to rebuild my blog with extreme
+        customisations with the help of Astro.This page is supposed to be my
+        blog. Let's see how far we can go!
+    </p>
+    <p>
+        Hope you'll follow along with the journey!Things are about to get very
+        spicy
+    </p>
+    <ul>
+        {
+            allPosts.map((post: any) => (
+                <BlogPost url={post.url} title={post.frontmatter.title} />
+            ))
+        }
+    </ul>
+</BaseLayout>

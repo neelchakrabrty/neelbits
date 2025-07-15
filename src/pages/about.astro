@@ -1,6 +1,5 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "About";
 
 const identity = {
@@ -12,46 +11,20 @@ const identity = {
 import "../styles/global.css";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <header class="shadow-md bg-white/80 backdrop-blur sticky top-0 z-10">
-            <nav
-                class="container mx-auto flex items-center justify-between py-4 px-6"
-            >
-                <div class="text-2xl font-bold text-sky-700 tracking-tight">
-                    Neelbits
-                </div>
-                <Navigation />
-            </nav>
-        </header>
-        <h1>{pageTitle}</h1>
-        <h1>This site is undergoing a surgery</h1>
-        <p>Here are a few facts about me:</p>
-        <ul>
-            <li>My name is {identity.firstName}.</li>
-            <li>
-                I live in {identity.country} and I work as a {
-                    identity.occupation
-                }.
-            </li>
-            {
-                identity.hobbies.length >= 2 && (
-                    <li>
-                        Two of my hobbies are: {identity.hobbies[0]} and{" "}
-                        {identity.hobbies[1]}
-                    </li>
-                )
-            }
-        </ul>
-
-        <h2>Hello Neel</h2>
-        <Footer />
-    </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+    <p>Here are a few facts about me:</p>
+    <ul>
+        <li>My name is {identity.firstName}.</li>
+        <li>
+            I live in {identity.country} and I work as a {identity.occupation}.
+        </li>
+        {
+            identity.hobbies.length >= 2 && (
+                <li>
+                    Two of my hobbies are: {identity.hobbies[0]} and{" "}
+                    {identity.hobbies[1]}
+                </li>
+            )
+        }
+    </ul>
+</BaseLayout>

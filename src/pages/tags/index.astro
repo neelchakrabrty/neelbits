@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/global.css";
+---
+
+<BaseLayout pageTitle="Tags">
+    <h1>Tags</h1>
+    <p>Explore posts by tags:</p>
+    <ul>
+        {
+            Object.keys(import.meta.glob("../posts/*.md", { eager: true })).map(
+                (filePath) => {
+                    const post = import.meta.glob("../posts/*.md", {
+                        eager: true,
+                    })[filePath];
+                    return post.frontmatter.tags.map((tag: string) => (
+                        <li>
+                            <a href={`/tags/${tag}`}>{tag}</a>
+                        </li>
+                    ));
+                },
+            )
+        }
+    </ul>
+</BaseLayout>
