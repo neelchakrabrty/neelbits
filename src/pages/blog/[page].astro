@@ -1,12 +1,20 @@
 ---
 // Paginate same list of `{ astronaut }` objects as the previous example
 export function getStaticPaths({ paginate }) {
-    const astronautPages = [
-        { astronaut: "Neil Armstrong" },
-        { astronaut: "Buzz Aldrin" },
-        { astronaut: "Sally Ride" },
-        { astronaut: "John Glenn" },
-    ];
+    const posts = Object.values(
+        import.meta.glob("../posts/*.md", { eager: true }),
+    );
+    const astronautPages = posts.map((post) => ({
+        astronaut: post.frontmatter.title,
+        url: post.url,
+    }));
+    // Sort by publication date
+    astronautPages.sort((a, b) => {
+        return (
+            new Date(b.publishedDate).getTime() -
+            new Date(a.publishedDate).getTime()
+        );
+    });
 
     // Generate pages from our array of astronauts, with 2 to a page
     return paginate(astronautPages, { pageSize: 2 });

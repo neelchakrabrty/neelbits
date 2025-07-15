@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-const { frontmatter, tag } = Astro.props;
+const { frontmatter } = Astro.props;
 
 // Format the publication date
 const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString(
@@ -28,11 +28,6 @@ function getPastelColor(tag: string) {
     color: #00539f;
   }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
   .tag {
     margin: 0.25em;
     border: dotted 1px #a1a1a1;
@@ -44,7 +39,7 @@ function getPastelColor(tag: string) {
 </style>
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <main class="container mx-auto px-4 py-12 flex flex-col items-center">
+  <main class="container mx-auto px-4 py-8 sm:py-12 flex flex-col items-center">
     <h1
       class="bg-gradient-to-r
       from-blue-600
@@ -53,23 +48,25 @@ function getPastelColor(tag: string) {
       inline-block
       text-transparent
       bg-clip-text
-      text-4xl
+      text-3xl
+      sm:text-4xl
       md:text-5xl
       font-extrabold
-      mb-6
+      mb-4
+      sm:mb-6
       drop-shadow
       leading-tight
       text-center
-      mx-auto"
+      max-w-full"
     >
       {frontmatter.title}
     </h1>
 
-    <div class="text-gray-600 text-sm mb-4">
+    <div class="text-gray-600 text-sm mb-3 sm:mb-4 text-center px-2">
       {formattedDate} · {frontmatter.author}
     </div>
 
-    <div class="flex gap-2 mb-4 flex-wrap">
+    <div class="flex gap-2 mb-4 flex-wrap justify-center px-2">
       {
         Array.isArray(frontmatter.tags) &&
           frontmatter.tags.map((tag) => {
@@ -78,7 +75,7 @@ function getPastelColor(tag: string) {
               <a
                 href={`/tags/${tag}`}
                 style={`background-color: ${pastelColor}; color: #333; border: 1px solid #ccc;`}
-                class="px-3 py-1 text-sm rounded-lg hover:opacity-90 transition"
+                class="px-3 py-1 text-sm rounded-lg hover:opacity-90 transition whitespace-nowrap"
               >
                 {tag}
               </a>
@@ -88,7 +85,7 @@ function getPastelColor(tag: string) {
     </div>
   </main>
 
-  <article class="prose max-w-3xl mx-auto px-4">
+  <article class="prose max-w-full sm:max-w-3xl mx-auto px-4 sm:px-6">
     <slot />
   </article>
 </BaseLayout>
