@@ -1,12 +1,9 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'The Melancholy of Insignificance'
+title: 'Lorem Ipsum'
 pubDate: 2025-07-14
 description: 'This is the first post of my new Astro blog.'
 author: 'Neel Chakraborty'
-image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging", "learning in public"]
 ---
 # Vocas isse et spatio hoc Dignane manus

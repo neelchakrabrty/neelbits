@@ -1,0 +1,29 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title : 'Forgetting'
+pubDate: 2024-11-21
+tags : ["Philosophy","Thoughts"]
+author: 'Neel Chakraborty'
+---
+
+You open your eyes, and look at the clock on the eastern wall of your room,it’s a blur. It’s late noon. You hurriedly pull a pillow over your face,to hide away from the tropical sun bleeding into your room,and your vision goes from a blur to pitch black. You’re in a hurry.
+
+You clutch onto your pillow tightly, and push it over your face. You twist and turn all over the bed,and the walls can hear the sorrowful creaks of impending loss. Slowly, you amble to the realization that you have woken up. You sit up, and reach out for the packet of Dunhill on the bedside table. You take one,and light it up.
+
+It’s as if your mind doesn’t belong to you anymore, like a rented room where you’ve overstayed your welcome. Your limbs feel foreign, as if they belong to someone else, moving through the motions while you linger on,just out of reach.You dwell like an outsider in your brain and you’re a stranger to your own life. It’s a strange kind of sleepwalking, not just through the day, but through yourself. You don’t remember who you were when you closed your eyes last night.
+
+Your ticket out of this, is a memory you've been learning to forget, and right now it nestles on your uneven palm, like a drop of rain in the Sahara. You're certain of the fact you'll soon forget about it,but you don't know when,or even if you'll be ready when the time comes. You'll learn that dying memories speaks in undertones,that they have a lot of poetic license to maneuver themselves and wiggle out enough room to make it out into your palm. You try to remember her face, but it’s been a while and you can’t really picture her that well anymore, you catch a glimpse of her fading memories, and you have to come to terms with the human condition of forgetting, you’ll have to let go,but you will let go of it with claw marks on it. It’ll roam around,in the wastelands and graveyards where memories go to wither,it will carry your scent,and nobody will call it home. You’re in a fight against the agency of time as it runs through you,as you age one forgotten memory at a time. You stand against the inevitable, every time you wake up,in tatters and rags,yet you stand, as long as you can love,as long as you can recall,you will stand against the agency of time. Maybe this is why time and humans has been historic enemies, because we cannot resist the urge to bring the dead back to life. 
+
+The person who couldn’t be contained in your ideas of her,now is simply defined by what you have contained of her,by what you can recall about her. She is no longer capable of surprise.  
+
+You turn to the remnants of your memory. You’ve once felt her hair,wrangle onto your fingertips, you’ve mapped the contour of her face with yours, you’ve hunted for her scent amidst midnight like an infant, you’ve felt every inch she had,in your bones.Today,this late noon,you recognize her only through the shape of memories of her absence,and you talk to her with the shared incommunicable past that has become your language,your private literature. You possess the memory of her love for you,where nothing else of consequence will grow. Your memory is alive because she is absent,just as some things can only be understood by the shape of their absence. You will remember the lover who is not in the bed, and her absence presses against you, it suffocates you.If no memory of her survives,if everything falls, you will become the memory,one can draw the sketches of your love for her,in detail by just examining the person you have become as a consequence of loving her. It’s a reverse engineering problem,and sadly enough we’re in too much of a hurry to sit down and reverse engineer someone,even though there is an evident,crying need for it. 
+
+Learning to forget and to love as we let go of things is a hard job,and no one really holds our hand through the process.The roaring waves of memories that come banging the doors on their hinges,tearing apart the photographs from your wall,like a rabid dog on the loose.It chews through you,and you whimper like a lost puppy in a thunderstorm.Your arms stretch wide open to where the horizon melts, as you invite the flood right in.
+
+Forgetting is giving up agency, forgetting is assuming the role of onlooker as the past disintegrates into a desolate foreign language in front of you.Forgetting is paradoxical. It starts with a lot of remembrance and you invent a series of stratagems and strategies to outmaneuver the flood of memories , and you knit your memories against your skin for warmth,and you wait for time to come and take them away.The outskirts of our being gets defined by what we are trying to forget,memory becomes our master,and we its slave.Our bodies become a bleeding wharf,where it was once promised that seasick sailors would find their way,and grows into catacombs of memories turned myths. 
+
+This wait,is a sudden drop into a limbo of our creation,where everything makes sense,not in the rational or logical way of things,but it makes sense because it is exactly how we want things to be,it’s an isolated container which houses just you,which cares for just you.It looks beautiful,it sounds beautiful,but it is a cruel place to be in.It’s as if we were suspended in still time inside of a glass jar,as we watched the world go round. We must fight the allure of this limbo,we must never allow the future to collapse under the burden of memory.
+
+Every morning as you’re about to wake up, you catch a glimpse of her, and try to sleep a little bit more,because you know that you are eventually going to stop dreaming about her.You’re resigned to your fate. 
+
+Loss,knows you like you were its twin brother from a shared womb,and your trembling,withering memories is now its food. 
