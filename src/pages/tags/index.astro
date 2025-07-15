@@ -1,25 +1,70 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "../../styles/global.css";
+const allPosts = Object.values(
+    import.meta.glob("../posts/*.md", { eager: true }),
+);
+const tags = [
+    ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
+];
+const pageTitle = "Tag Index";
 ---
 
-<BaseLayout pageTitle="Tags">
-    <h1>Tags</h1>
-    <p>Explore posts by tags:</p>
-    <ul>
-        {
-            Object.keys(import.meta.glob("../posts/*.md", { eager: true })).map(
-                (filePath) => {
-                    const post = import.meta.glob("../posts/*.md", {
-                        eager: true,
-                    })[filePath];
-                    return post.frontmatter.tags.map((tag: string) => (
-                        <li>
-                            <a href={`/tags/${tag}`}>{tag}</a>
-                        </li>
-                    ));
-                },
-            )
-        }
-    </ul>
+<style>
+    a {
+        color: #00539f;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+.tag {
+  margin: 0.25em;
+  border: dotted 1px #a1a1a1;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  font-size: 1.15em;
+  background-color: #f8fcfd;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tag:hover {
+  background-color: #d0e7fa;
+  color: #003366;
+}
+    
+</style>
+<BaseLayout pageTitle={pageTitle}>
+    <section class="max-w-3xl mx-auto py-10 px-4">
+        <h1
+            class="bg-gradient-to-r
+            from-blue-600
+            via-green-500
+            to-indigo-400
+            inline-block
+            text-transparent
+            bg-clip-text
+            text-4xl
+            md:text-5xl
+            font-extrabold
+            mb-6
+            drop-shadow
+            leading-tight
+            overflow-visible"
+        >
+            Tags
+        </h1>
+        <div class="tags">
+            {
+                tags.map((tag) => (
+                    <p class="tag">
+                        {/* Use a link to the tag page */}
+                        <a href={`/tags/${tag}`}>{tag}</a>
+                    </p>
+                ))
+            }
+        </div>
+    </section>
 </BaseLayout>

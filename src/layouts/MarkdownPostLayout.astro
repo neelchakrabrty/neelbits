@@ -1,12 +1,73 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 ---
 
+<style>
+    a {
+        color: #00539f;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-size: 1.15em;
+        background-color: #f8fcfd;
+    }
+</style>
 <BaseLayout pageTitle={frontmatter.title}>
-    <p>Published on:-{frontmatter.pubDate.toString().slice(0, 10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+    	<main
+			class="container mx-auto px-4 py-12 flex flex-col items-center"
+		>
+    <h1
+        class="bg-gradient-to-r
+        from-blue-600
+        via-green-500
+        to-indigo-400
+        inline-block
+        text-transparent
+        bg-clip-text
+        text-4xl
+        md:text-5xl
+        font-extrabold
+        mb-6
+        drop-shadow
+        leading-tight
+        text-center
+        mx-auto
+        "
+    >
+        {frontmatter.title}
+    </h1>
+  <div class="text-gray-600 text-sm mb-4">
+    {formattedDate} · {frontmatter.wordCount} words · {frontmatter.readingTime} mins ·
+  </div>
+
+  <div class="flex gap-2 mb-4">
+    {Array.isArray(frontmatter.tags) && frontmatter.tags.map((tag: string) => (
+      <a 
+        href={`/tags/${tag}`}
+        class="px-3 py-1 text-sm rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 border border-gray-300"
+      >
+        {tag}
+      </a>
+    ))}
+  </div>
+
+  <div class="text-xs uppercase text-gray-500 mt-6">Author</div>
+  <p class="text-lg font-semibold text-black mb-6">{frontmatter.author}</p>
     <slot />
+</main>
 </BaseLayout>
